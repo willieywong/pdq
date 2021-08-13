@@ -1,2 +1,2 @@
 # pdq
-A collection of packages and use scenarios during my time with the PDQ product line.
+A collection of packages and reports during my time with the PDQ product line.
