@@ -1,5 +1,10 @@
 # PDQ Inventory location
-$PdqInventoryPath = 'C:\Program Files (x86)\Admin Arsenal\PDQ Inventory\PDQInventory.exe'
+$pdqDeployPath = 'C:\Program Files (x86)\Admin Arsenal\PDQ Deploy\PDQDeploy.exe'
+$pdqInventoryPath = 'C:\Program Files (x86)\Admin Arsenal\PDQ Inventory\PDQInventory.exe'
+
+# PDQ custom variables to reference
+$duoHealthPdqVariable = 'AppVerDuoHealth'
+$duoWinLogonPdqVariable = 'AppVerDuoWinLogon'
 
 # Point to file repository of where the files will be checked/downloaded
 $softwareRepo = "\\server\PDQ-Deploy\Cisco\Duo"
@@ -9,7 +14,6 @@ $softwareRepoChecksum = Get-FileHash "$softwareRepo\*" | Select-Object Hash -Exp
 
 # One-time pull request from site. Future variables will be built off this data
 $content = Invoke-WebRequest 'https://duo.com/docs/checksums'
-
 
 $duoHealth = $content.links | Where-Object {($_.href -like "*DuoDeviceHealth*.msi*") -and ($_.href -notlike "*beta*")}
 $duoHealthInnerText = $duoHealth.innerText
@@ -29,7 +33,8 @@ If(Compare-Object -ReferenceObject $duoHealthChecksum -DifferenceObject $softwar
         Invoke-WebRequest -Uri $downloadUrlDuoHealth -OutFile "$softwareRepo\$duoHealthFilename"
         If(Test-Path -Path "$softwareRepo\$duoHealthFilename") {
             Write-Output "$duoHealthFilename downloaded to $softwareRepo"
-            Start-Process -NoNewWindow $pdqinventorypath -ArgumentList "UpdateCustomVariable AppVerCiscoDuoHealth $duoHealthVersion"
+            Start-Process -NoNewWindow $pdqDeployPath -ArgumentList "UpdateCustomVariable $duoHealthPdqVariable $duoHealthVersion"
+            Start-Process -NoNewWindow $pdqInventoryPath -ArgumentList "UpdateCustomVariable $duoHealthPdqVariable $duoHealthVersion"
         } else {
             Write-Output "Unable to download $duoHealthFilename to $softwareRepo"
         }
@@ -52,10 +57,9 @@ If(Compare-Object -ReferenceObject $duoWinLogonChecksum -DifferenceObject  $soft
         Invoke-WebRequest -Uri $downloadUrlDuoWinLogon -OutFile "$softwareRepo\$duoWinLogonFilename"
         If(Test-Path -Path "$softwareRepo\$duoWinLogonFilename") {
             Write-Output "$duoWinLogonFilename downloaded to $softwareRepo"
+            Start-Process -NoNewWindow $pdqDeployPath -ArgumentList "UpdateCustomVariable $duoWinLogonPdqVariable $duoWinLogonVersion"
+            Start-Process -NoNewWindow $pdqDeployPath -ArgumentList "UpdateCustomVariable $duoWinLogonPdqVariable $duoWinLogonVersion"
         } else {
             Write-Output "Unable to download $duoWinLogonFilename to $softwareRepo"
         }
 }
-
-# Stop logging
-Stop-Transcript
