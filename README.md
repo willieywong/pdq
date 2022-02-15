@@ -1,5 +1,7 @@
 # pdq
-This repository is a collection of my PDQ-related packages and use cases during my time with PDQ Deploy and PDQ Inventory. They've worked reliabilty for me, but I recommend performing your due diligence, going through the scripts, and ensure they won't negatively impact your environment. Use at your own risk!
+This repository is comprised of the PDQ-related packages and collections I've created during my time using PDQ Deploy and PDQ Inventory, to solve problems I've encountered as part of my day-to-day work. They've worked reliably for me, but I recommend performing your due diligence and ensuring they won't negatively impact your environment. Use at your own risk!
+
+All of these packages and collections were developed using an Enterprise version of PDQ Deploy and PDQ Inventory and may not work if using the free version.
 
 PDQ Deploy packages
 
