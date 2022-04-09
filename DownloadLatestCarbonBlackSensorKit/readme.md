@@ -20,7 +20,7 @@ When used altogether, you will have the latest version of 'Carbon Black Sensor K
 
 ## Prerequisites
 
-1. Client running at least PowerShell 5
+1. Client running PDQ Deploy, PDQ Inventory, and at least PowerShell 5
 2. Account with permissions to download files into the PDQ repository
 3. Create custom variables @(AppVerCarbonBlackSensorKit) in both PDQ Deploy and PDQ Inventory
 4. Update your existing PDQ Deploy packages for 'Carbon Black Sensor Kit' to use the custom variables in the install path
