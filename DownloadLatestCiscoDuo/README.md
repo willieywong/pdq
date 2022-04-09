@@ -22,7 +22,7 @@ When used altogether, you will have the latest version of 'Cisco Duo Health' and
 
 1. Client running at least PowerShell 5
 2. Account with permissions to download files into the PDQ repository
-3. Create custom variables @(AppVerCiscoDuoHealth) and @(AppVerCiscoDuoWinLogon) in both PDQ Deploy and PDQ Inventory (ping me if you figure out how to do this in cmd)
+3. Create custom variables @(AppVerDuoHealth) and @(AppVerDuoWinLogon) in both PDQ Deploy and PDQ Inventory (ping me if you figure out how to do this in cmd)
 4. Update your existing PDQ Deploy packages for 'Cisco Duo Health' and 'Cisco Duo Authentication Logon for Windows' to use the custom variables in the install path
 
 ## Limitations
