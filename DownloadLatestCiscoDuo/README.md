@@ -12,9 +12,9 @@ But if there isn't a checksum match on either product, the script will download 
 
 The script will also update custom variables in PDQ Deploy and PDQ Inventory to match the version that was downloaded.
 
-This script is then placed into a PDQ Deploy package, which can then be run on a PDQ Deploy schedule. This fulfills the auto-updating aspect that's similar to what's offered in the package library.
+When the script is placed into its own PDQ Deploy package, it can be run on a PDQ Deploy schedule of your choosing. This will fulfill the auto-updating aspect that's similar to what's offered in the package library.
 
-With the provided PDQ Inventory collection, you can identify computers that either don't have the software or have the softawre but it's outdated. This collection can then be targeted into a PDQ Deploy schedule that deploys the latest software.
+Because the script also updates custom variables for the products, you can create a PDQ Inventory collection to identify computers that either don't have the software or have the softawre but it's outdated. This collection can then be targeted into a PDQ Deploy schedule that deploys the latest software.
 
 When used altogether, you will have the latest version of 'Cisco Duo Health' and 'Cisco Duo Authentication Logon for Windows' in your repository and as well as having the latest verions installed on your clients, effortlessly.
 
