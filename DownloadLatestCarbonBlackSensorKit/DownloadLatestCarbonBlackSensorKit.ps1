@@ -20,9 +20,7 @@ $CBVersion = $CBVersion.Replace("VMware Carbon Black Cloud Windows Sensor ","")
 
 # Create filenames with current version
 $CBFilenamex64 = "installer_vista_win7_win8-64-$CBVersion.msi"
-$CBFilenamex64Latest = "installer_vista_win7_win8-64-latest.msi"
 $CBFilenamex86 = "installer_vista_win7_win8-32-$CBVersion.msi"
-$CBFilenamex86Latest = "installer_vista_win7_win8-32-latest.msi"
 
 # Variables needed to download from Carbon Black with API call
 $api_key = "<api_key>"
